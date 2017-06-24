@@ -3,7 +3,6 @@
 
 import praw
 import requests
-import requests.auth
 
 #Maximum of 60 requests per minute as per reddit's terms
 """
@@ -17,17 +16,19 @@ Response headers:
 
 def praw_reddit_authorized():
     authorized_instance = praw.Reddit(client_id = 'yXTwupFSkGggig',
-                                        client_secret = '4QsXNLGCQ1TLo2cbgJ3akyvKYBw',
-                                        password = 'OmputerClaw65',
-                                        user_agent = 'pythonscript:linkwho.py:v1.0 (by /u/drg_analytics)',
-                                        username = 'drg_analytics' )
+                                      client_secret = '4QsXNLGCQ1TLo2cbgJ3akyvKYBw',
+                                      password = 'OmputerClaw65',
+                                      user_agent = 'pythonscript:linkwho.py:v1.0 (by /u/drg_analytics)',
+                                      username = 'drg_analytics' )
     return authorized_instance
+
 
 def praw_reddit_read_only():
     read_only_instance = praw.Reddit(client_id = 'yXTwupFSkGggig',
                                        client_secret = '4QsXNLGCQ1TLo2cbgJ3akyvKYBw',
                                        user_agent = 'pythonscript:linkwho.py:v1.0 (by /u/drg_analytics)' )
     return read_only_instance
+
 
 def get_hot_ten(connection, subreddit_name):
     """prints the top 10 hotest threads for a given subreddit.
@@ -47,7 +48,7 @@ def get_most_linked_url(connection, subreddit_name, time):
     Args:
         connection = praw Reddit instance (authorized or read only) to reddit
         subreddit_name = the desired subreddit
-        time = for the given time period. Options: 'day', 'month', 'year','al'
+        time = for the given time period. Options: 'day', 'month', 'year','all'
 
     """
 
@@ -68,4 +69,4 @@ def stalk_a_fool(connection, user):
 
 
 reddit_connect = praw_reddit_authorized()
-get_most_linked_url(reddit_connect, subreddit_name= 'politics', time= 'day')
+get_most_linked_url(reddit_connect, subreddit_name= 'the_donald', time= 'day')
