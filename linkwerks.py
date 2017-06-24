@@ -1,9 +1,11 @@
 #Drew Guyer 2017
-#Program to see what are the most commonly linked to websites
+#GPL License v3.0
 
+import dataset
 import praw
 import requests
 
+####################   NOTES #############################
 #Maximum of 60 requests per minute as per reddit's terms
 """
 Response headers:
@@ -12,7 +14,9 @@ Response headers:
     X-Ratelimit-Reset: Approximate number of seconds to end of period
 """
 # Requests for multiple resources at a time are always better than requests for single-resources in a loop.
+###################     #######################  ##################
 
+db = dataset.connect('sqlite:////home/drg/cs/pycode/reddit/linkwerks/linkwerks.db')
 
 def praw_reddit_authorized():
     authorized_instance = praw.Reddit(client_id = 'yXTwupFSkGggig',
@@ -25,8 +29,8 @@ def praw_reddit_authorized():
 
 def praw_reddit_read_only():
     read_only_instance = praw.Reddit(client_id = 'yXTwupFSkGggig',
-                                       client_secret = '4QsXNLGCQ1TLo2cbgJ3akyvKYBw',
-                                       user_agent = 'pythonscript:linkwho.py:v1.0 (by /u/drg_analytics)' )
+                                     client_secret = '4QsXNLGCQ1TLo2cbgJ3akyvKYBw',
+                                     user_agent = 'pythonscript:linkwho.py:v1.0 (by /u/drg_analytics)' )
     return read_only_instance
 
 
