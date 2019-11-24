@@ -21,9 +21,9 @@ db = dataset.connect('sqlite:////home/drg/cs/pycode/reddit/linkwerks/linkwerks.d
 def praw_reddit_authorized():
     authorized_instance = praw.Reddit(client_id = 'yXTwupFSkGggig',
                                       client_secret = '4QsXNLGCQ1TLo2cbgJ3akyvKYBw',
-                                      password = 'OmputerClaw65',
+                                      password = 'LindaPisLameBoo',
                                       user_agent = 'pythonscript:linkwho.py:v1.0 (by /u/drg_analytics)',
-                                      username = 'drg_analytics' )
+                                      username = 'xxXxxXxxX' )
     return authorized_instance
 
 
